@@ -1,11 +1,20 @@
 import sys
 import subprocess
+import requests
 
 streamers = ["PoppedBit"]
 
 def main():
-    url = getStreamUrl(streamers[0])
-    openUrl(url)
+    isLive = isChannelLive(streamers[0])
+    # if isLive:
+    #     url = getStreamUrl(streamers[0])
+    #     openUrl(url)
+
+# Pings a channel to find out if it is live
+def isChannelLive(channel):
+    url = getStreamUrl(channel)
+    response = requests.get(url).content.decode('utf-8')
+    print(response)
 
 # Given a URL, open it in the default browser
 def openUrl(url):
