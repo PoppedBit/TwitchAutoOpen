@@ -10,10 +10,10 @@ def main():
         print("The username of a streamer is required as an argument, none provided")
         return
 
-    stream = sys.argv[1]
-    isLive = isChannelLive(stream)
+    streamer = sys.argv[1]
+    isLive = isChannelLive(streamer)
     if isLive:
-        openStream(stream)
+        openStream(streamer)
 
 # Pings a channel to find out if it is live
 def isChannelLive(channel):
